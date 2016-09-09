@@ -66,18 +66,6 @@ bot.on('message', (payload, reply) => {
                     "content_type": "text",
                     "title": 6,
                     "payload": "FF"
-                },{
-                    "content_type": "text",
-                    "title": 7,
-                    "payload": "FF"
-                },{
-                    "content_type": "text",
-                    "title": 8,
-                    "payload": "FF"
-                },{
-                    "content_type": "text",
-                    "title": 9,
-                    "payload": "FF"
                 }
                 ]
             }, (err) => {
