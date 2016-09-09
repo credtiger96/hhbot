@@ -43,13 +43,13 @@ http.createServer(bot.middleware()).listen(process.env.PORT, () => {
     console.log(`server listen on ${process.env.PORT}`);
 })
 */
-'use strict'
-const http = require('http')
-const express = require('express')
-const bodyParser = require('body-parser')
-const Bot = require('messenger-bot')
-const process = require('process')
-
+'use strict';
+const http = require('http');
+const express = require('express');
+const bodyParser = require('body-parser');
+const Bot = require('messenger-bot');
+const process = require('process');
+const StateManager = require('./StateManager')
 
 
 let bot = new Bot({
@@ -58,32 +58,41 @@ let bot = new Bot({
     app_secret: '15fefb7616c05e773ceed7badd94dd15'
 });
 
+// maybe it needs to be singleton
+let stateManager = new StateManager();
+
 bot.on('error', (err) => {
     console.log(err.message)
 })
 
 bot.on('message', (payload, reply) => {
-    let text = payload.message.text
-
+    //let text
+    // temporal GPS test
+     /*
     if (payload.message.attachments){
         text = payload.message.attachments[0].payload.coordinates.lat + ', ' +
             payload.message.attachments[0].payload.coordinates.long;
     }
-
+*/
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) throw err;
 
-        reply({ text }, (err) => {
-            if (err) throw err;
+        stateManager.do(payload.sender.id, profile, (text)=>{
 
-            console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
-        })
+            reply({ text }, (err) => {
+                if (err) throw err;
+                console.log(`We replied : ${profile.first_name} ${profile.last_name}: ${text}`)
+            });
+
+        });
+
+
     })
 })
 
-let app = express()
+let app = express();
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }))
