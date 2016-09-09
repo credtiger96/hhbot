@@ -65,7 +65,7 @@ class StateManager {
                 }
                 break;
             case 2 :
-                if (payload.message.text == '720') res = 'olleh';
+                if (payload.message.text == '720') res.text = 'olleh';
                 else {
                     res.text = Strings.KR_INVALIDATE_BUSNUM;
                 }
