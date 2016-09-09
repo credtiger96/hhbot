@@ -32,7 +32,10 @@ bot.on('message', (payload, reply) => {
     }
 */
     bot.getProfile(payload.sender.id, (err, profile) => {
-        if (err) throw err;
+        if (err) {
+            console.log('getProfile error : ' +  err.message);
+            throw err;
+        }
 
         stateManager.do(payload, profile, (err, text)=>{
             if (err) throw err;
