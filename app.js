@@ -40,7 +40,35 @@ bot.on('message', (payload, reply) => {
         stateManager.do(payload, profile, (err, text)=>{
             if (err) throw err;
 
-            reply({ text }, (err) => {
+            reply({ "text":text,
+                "quick_replies":[
+                {
+                    "content_type": "text1",
+                    "title": 1,
+                    "payload": "FF"
+                },{
+                    "content_type": "text2",
+                    "title": 1,
+                    "payload": "FF"
+                },{
+                    "content_type": "text33",
+                    "title": 1,
+                    "payload": "FF"
+                },{
+                    "content_type": "text4",
+                    "title": 1,
+                    "payload": "FF"
+                },{
+                    "content_type": "text5",
+                    "title": 1,
+                    "payload": "FF"
+                },{
+                    "content_type": "text10",
+                    "title": 1,
+                    "payload": "FF"
+                }
+                ]
+            }, (err) => {
                 if (err) throw err;
                 console.log(`We replied : ${profile.first_name} ${profile.last_name}: ${text}`)
             });
