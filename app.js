@@ -41,7 +41,7 @@ bot.on('message', (payload, reply) => {
         if (tt == 4){
             timer.setTimeout(()=>{
                 bot.sendMessage(payload.sender.id, 'time out in hell chosen', (err, info)=>{
-                    if (err) throw err;
+                    if (err) console.log(err);
                 });
             },4000);
         }
