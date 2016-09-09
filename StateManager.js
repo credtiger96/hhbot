@@ -69,7 +69,7 @@ class StateManager {
                 else {
                     res.text = Strings.KR_INVALIDATE_BUSNUM;
                 }
-                userContext.setState(2);
+                userContext.setState(0);
                 break;
             default :
                 userContext.setState(0);
