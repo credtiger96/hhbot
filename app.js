@@ -52,7 +52,7 @@ bot.on('message', (payload, reply) => {
 bot.on('postback', (payload, reply) => {
 
     console.log('payload come');
-    console.log(payload)l
+    console.log(payload);
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) throw err;
 
