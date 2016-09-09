@@ -41,10 +41,10 @@ class StateManager {
                 if (payload.message.attachments && payload.message.attachments[0].payload.coordinates){
                     //let lat = payload.message.attachments[0].payload.coordinates.lat;
                     //let long = payload.message.attachments[0].payload.coordinates.long;
-                    res = String.KR_VALIDATE_LOCATION + String.KR_NEED_BUSNUM;
+                    res = Strings.KR_VALIDATE_LOCATION + Strings.KR_NEED_BUSNUM;
                     userContext.setState(2);
                 }else {
-                    res = String.KR_INVALIDATE_LOCATION;
+                    res = Strings.KR_INVALIDATE_LOCATION;
                 }
                 break;
             case 2 :
