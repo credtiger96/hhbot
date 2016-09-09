@@ -53,7 +53,7 @@ class StateManager {
             default :
                 res = "error, unexpected state."
         }
-
+        console.log(res);
         reply({ text : res }, (err) => {
             if (err) {
                 console.log(err.message);
