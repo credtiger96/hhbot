@@ -43,28 +43,28 @@ bot.on('message', (payload, reply) => {
             reply({ "text":text,
                 "quick_replies":[
                 {
-                    "content_type": "text1",
+                    "content_type": "text",
                     "title": 1,
                     "payload": "FF"
                 },{
-                    "content_type": "text2",
-                    "title": 1,
+                    "content_type": "text",
+                    "title": 2,
                     "payload": "FF"
                 },{
-                    "content_type": "text33",
-                    "title": 1,
+                    "content_type": "text",
+                    "title": 3,
                     "payload": "FF"
                 },{
-                    "content_type": "text4",
-                    "title": 1,
+                    "content_type": "text",
+                    "title": 4,
                     "payload": "FF"
                 },{
-                    "content_type": "text5",
-                    "title": 1,
+                    "content_type": "text",
+                    "title": 5,
                     "payload": "FF"
                 },{
-                    "content_type": "text10",
-                    "title": 1,
+                    "content_type": "text",
+                    "title": 6,
                     "payload": "FF"
                 }
                 ]
