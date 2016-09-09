@@ -53,15 +53,37 @@ bot.on('postback', (payload, reply) => {
 
     console.log('payload come');
     console.log(payload);
+    const QUICK_PAYLOAD = 'PPPP';
+    let res = {};
+    if (payload.postback.payload == 'how_to_postback')
+    { 
+        res.text = KR_GREETING_MSG;
+    }
+    else if (payload.postback.payload == 'show_bus_list') {
+        res.text = 'Choose Bus Number';
+        res.quick_replies: [
+        {
+            content_type: 'text',
+            title: '720-2',
+            payload:QUICK_PAYLOAD 
+        },{
+            content_type: 'text',
+            title: '720-1',
+            payload:QUICK_PAYLOAD 
+        }
+        ]
+    }
+    
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) throw err;
 
-        reply({ text: KR_GREETING_MSG }, (err) => {
+        reply(res, (err) => {
             if (err) throw err;
             console.log(`Greeting to ${profile.first_name} ${profile.last_name}`)
 
         })
     })
+    
 })
 
 
