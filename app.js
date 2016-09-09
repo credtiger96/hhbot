@@ -77,13 +77,13 @@ bot.on('message', (payload, reply) => {
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) throw err;
 
-        stateManager.do(payload.sender.id, profile, (text)=>{
+        stateManager.do(payload, profile, (err, text)=>{
+            if (err) throw err;
 
             reply({ text }, (err) => {
                 if (err) throw err;
                 console.log(`We replied : ${profile.first_name} ${profile.last_name}: ${text}`)
             });
-
         });
 
 

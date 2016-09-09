@@ -17,9 +17,14 @@ class StateManager {
         return instance;
     }
 
-    do(id, profile, cb) {
+    do(payload, profile, cb) {
         let userContext;
-        let text="default";
+
+        let id = payload.sender.id;
+        let text = payload.message.text;
+
+        let res="default";
+
         // if the user is not in our tree, insert user and give state 0
         if (!(userContext = this.stateTree.get(id))){
             userContext = new Context(0);
@@ -28,16 +33,20 @@ class StateManager {
 
         switch (userContext.getState()){
             case 0 :
-                text = "hello world!";
+                res = text +  "hello world!";
+                userContext.setState(1);
+                break;
+            case 1 :
+                res = text +  "hell choseon!";
+                userContext.setState(0);
                 break;
             default :
-                text = "error, unexpected state."
-
+                res = "error, unexpected state."
         }
 
 
 
-        cb(text);
+        cb(null, res);
 
     }
 
