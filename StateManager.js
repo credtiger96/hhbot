@@ -45,7 +45,10 @@ class StateManager {
                     let _long = payload.message.attachments[0].payload.coordinates.long;
                     let _url = `http:\/\/maps.google.com/maps?q=loc:${_lat},${_long}`;
 
+                    res.attachment = {};
+                    res.attachment.type = '';
                     res.attachment.type = 'template';
+                    res.attachment.payload = {};
                     res.attachment.payload.template_type = 'button';
                     res.attachment.payload.buttons = [
                     {
