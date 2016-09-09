@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const Bot = require('messenger-bot');
 const process = require('process');
 const StateManager = require('./StateManager')
+const timer = require('timers')
 
 const GREETING_MSG = "안녕하세요! HHbot 이에요. 저는 여러분의 위치를 기반으로 버스의 정보를 제공하려 해요.  본 서비스는 여러분의 위치정보를 필요로해요. 아! PC로는 어려울 것 같아요."
 const CMSG = 'hello world'
@@ -35,6 +36,16 @@ bot.on('message', (payload, reply) => {
         if (err) {
             console.log('getProfile error : ' +  err.message);
             throw err;
+        }
+        let tt = payload.message.text;
+        if (tt == 4){
+            timer.setInterval((reply_)=>{
+                reply({
+                    "text": "time out!!!"
+                }, (err)=> {
+                    if (err) throw err;
+                });
+            },1000,reply);
         }
 
         stateManager.do(payload, profile, (err, text)=>{
