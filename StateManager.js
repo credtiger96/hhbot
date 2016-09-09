@@ -3,6 +3,7 @@
  */
 let RedBlackTree = require('redblack');
 let Context = require('./Context');
+const request = require('request');
 
 let instance  = null;
 
@@ -14,10 +15,16 @@ class StateManager {
         }
         this.stateTree = RedBlackTree.tree();
         console.log('State Tree and State Manager Generated.');
+        setTimeout(()=>{
+            request({
+
+            })
+
+        },3000);
         return instance;
     }
 
-    do(payload, profile, cb) {
+    do(payload, profile, reply) {
         let userContext;
 
         let id = payload.sender.id;
@@ -33,20 +40,22 @@ class StateManager {
 
         switch (userContext.getState()){
             case 0 :
-                res = text +  "hello world!";
+                res = text +  " hello world!";
                 userContext.setState(1);
                 break;
             case 1 :
-                res = text +  "hell choseon!";
+                res = text +  " hell choseon!";
                 userContext.setState(0);
                 break;
             default :
                 res = "error, unexpected state."
         }
 
+        reply({ text }, (err) => {
+            if (err) throw err;
+            console.log(`We replied : ${profile.first_name} ${profile.last_name}: ${text}`)
+        });
 
-
-        cb(null, res);
 
     }
 
