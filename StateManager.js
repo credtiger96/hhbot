@@ -4,7 +4,7 @@
 let RedBlackTree = require('redblack');
 let Context = require('./Context');
 const request = require('request');
-
+const Strings = require('./res/Strings');
 let instance  = null;
 
 class StateManager {
@@ -40,12 +40,21 @@ class StateManager {
 
         switch (userContext.getState()){
             case 0 :
-                res = text +  " hello world!";
+                res = Strings.KR_NEED_LOCATION;
                 userContext.setState(1);
                 break;
             case 1 :
-                res = text +  " hell choseon!";
-                userContext.setState(0);
+                if (payload.message.attachments && payload.message.attachments[0].payload.coordinates){
+                    //let lat = payload.message.attachments[0].payload.coordinates.lat;
+                    //let long = payload.message.attachments[0].payload.coordinates.long;
+                    res = String.KR_VALIDATE_LOCATION + String.KR_NEED_BUSNUM;
+                    userContext.setState(2);
+                }else {
+                    res = String.KR_INVALIDATE_LOCATION;
+                }
+                break;
+            case 2 :
+                if (payload.message.text == '720') res = 'olleh';
                 break;
             default :
                 res = "error, unexpected state."
@@ -55,7 +64,6 @@ class StateManager {
             if (err) throw err;
             console.log(`We replied : ${profile.first_name} ${profile.last_name}: ${text}`)
         });
-
 
     }
 

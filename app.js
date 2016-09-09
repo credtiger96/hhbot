@@ -33,10 +33,10 @@ bot.on('message', (payload, reply) => {
     //let text
     // temporal GPS test
      /*
-    if (payload.message.attachments){
-        text = payload.message.attachments[0].payload.coordinates.lat + ', ' +
-            payload.message.attachments[0].payload.coordinates.long;
-    }
+        if (payload.message.attachments){
+            text = payload.message.attachments[0].payload.coordinates.lat + ', ' +
+                payload.message.attachments[0].payload.coordinates.long;
+        }
 */
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) {
