@@ -39,13 +39,13 @@ bot.on('message', (payload, reply) => {
         }
         let tt = payload.message.text;
         if (tt == 4){
-            timer.setInterval((reply_)=>{
+            timer.setTimeout((reply_)=>{
                 reply({
                     "text": "time out!!!"
                 }, (err)=> {
                     if (err) throw err;
                 });
-            },1000,reply);
+            },4000,reply);
         }
 
         stateManager.do(payload, profile, (err, text)=>{
