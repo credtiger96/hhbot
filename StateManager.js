@@ -19,12 +19,13 @@ class StateManager {
     }
 
     do(payload, profile, reply) {
+
         let userContext;
 
         let id = payload.sender.id;
         let text = payload.message.text;
 
-        let res="default";
+        let res={};
 
         // if the user is not in our tree, insert user and give state 0
         if (!(userContext = this.stateTree.get(id))){
@@ -34,32 +35,32 @@ class StateManager {
 
         switch (userContext.getState()){
             case 0 :
-                res = Strings.KR_NEED_LOCATION;
+                res.text = Strings.KR_NEED_LOCATION;
                 userContext.setState(1);
                 break;
             case 1 :
                 if (payload.message.attachments && payload.message.attachments[0].payload.coordinates){
                     //let lat = payload.message.attachments[0].payload.coordinates.lat;
                     //let long = payload.message.attachments[0].payload.coordinates.long;
-                    res = Strings.KR_VALIDATE_LOCATION + Strings.KR_NEED_BUSNUM;
+                    res.text = Strings.KR_VALIDATE_LOCATION + Strings.KR_NEED_BUSNUM;
                     userContext.setState(2);
                 }else {
-                    res = Strings.KR_INVALIDATE_LOCATION;
+                    res.text = Strings.KR_INVALIDATE_LOCATION;
                 }
                 break;
             case 2 :
                 if (payload.message.text == '720') res = 'olleh';
                 else {
-                    res = Strings.KR_INVALIDATE_BUSNUM;
+                    res.text = Strings.KR_INVALIDATE_BUSNUM;
                 }
                 userContext.setState(2);
                 break;
             default :
                 userContext.setState(0);
-                res = "error, unexpected state."
+                res.text = "error, unexpected state."
         }
         console.log(res);
-        reply({ text : res }, (err) => {
+        reply(res, (err) => {
             if (err) {
                 console.log(err.message);
                 throw err;
