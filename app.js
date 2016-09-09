@@ -52,7 +52,7 @@ bot.on('postback', (payload, reply) => {
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) throw err;
 
-        reply({ text: CMSG }, (err) => {
+        reply({ text: GREETING_MSG }, (err) => {
             if (err) throw err;
             console.log(`Greeting to ${profile.first_name} ${profile.last_name}`)
 
