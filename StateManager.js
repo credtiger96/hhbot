@@ -54,8 +54,11 @@ class StateManager {
                 res = "error, unexpected state."
         }
 
-        reply({ text }, (err) => {
-            if (err) throw err;
+        reply({ text : res }, (err) => {
+            if (err) {
+                console.log(err.message);
+                throw err;
+            }
             console.log(`We replied : ${profile.first_name} ${profile.last_name}: ${text}`)
         });
 
