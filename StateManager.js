@@ -45,8 +45,9 @@ class StateManager {
                     let _long = payload.message.attachments[0].payload.coordinates.long;
                     let _url = `http:\/\/maps.google.com/maps?q=loc:${_lat},${_long}`;
 
-                    res.payload.template_type = 'button';
-                    res.payload.buttons = [
+                    res.attachment.type = 'template';
+                    res.attachment.payload.template_type = 'button';
+                    res.attachment.payload.buttons = [
                     {
                         type: 'web_url',
                         url: _url,
@@ -54,7 +55,7 @@ class StateManager {
                     }
                     ]
 
-                    res.payload.text = Strings.KR_VALIDATE_LOCATION + Strings.KR_NEED_BUSNUM;
+                    res.attachment.payload.text = Strings.KR_VALIDATE_LOCATION + Strings.KR_NEED_BUSNUM;
                     userContext.setState(2);
                 }else {
                     res.text = Strings.KR_INVALIDATE_LOCATION;
