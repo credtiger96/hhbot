@@ -49,8 +49,10 @@ class StateManager {
                 break;
             case 2 :
                 if (payload.message.text == '720') res = 'olleh';
+                userContext.setState(0);
                 break;
             default :
+                userContext.setState(0);
                 res = "error, unexpected state."
         }
         console.log(res);
