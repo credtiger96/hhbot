@@ -18,14 +18,15 @@ class StateManager {
     }
 
     do(id, profile, cb) {
-        let userState;
+        let userContext;
         let text="default";
         // if the user is not in our tree, insert user and give state 0
-        if (!(userState = this.stateTree.get(id))){
-            this.stateTree.insert(id,new Context(0));
+        if (!(userContext = this.stateTree.get(id))){
+            userContext = new Context(0);
+            this.stateTree.insert(id,userContext);
         }
 
-        switch (userState.getState()){
+        switch (userContext.getState()){
             case 0 :
                 text = "hello world!";
                 break;
