@@ -68,23 +68,23 @@ bot.on('message', (payload, reply) => {
                     "payload": "FF"
                 },{
                     "content_type": "text",
-                    "title": 6,
+                    "title": 7,
                     "payload": "FF"
                 },{
                     "content_type": "text",
-                    "title": 6,
+                    "title": 8,
                     "payload": "FF"
                 },{
                     "content_type": "text",
-                    "title": 6,
+                    "title": 9,
                     "payload": "FF"
                 },{
                     "content_type": "text",
-                    "title": 6,
+                    "title": 10,
                     "payload": "FF"
                 },{
                     "content_type": "text",
-                    "title": 6,
+                    "title": 11,
                     "payload": "FF"
                 }
                 ]
