@@ -15,12 +15,6 @@ class StateManager {
         }
         this.stateTree = RedBlackTree.tree();
         console.log('State Tree and State Manager Generated.');
-        setTimeout(()=>{
-            request({
-
-            })
-
-        },3000);
         return instance;
     }
 
