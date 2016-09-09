@@ -61,7 +61,7 @@ bot.on('postback', (payload, reply) => {
     }
     else if (payload.postback.payload == 'show_bus_list') {
         res.text = 'Choose Bus Number';
-        res.quick_replies: [
+        res.quick_replies= [
         {
             content_type: 'text',
             title: '720-2',
