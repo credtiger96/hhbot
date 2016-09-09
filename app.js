@@ -39,13 +39,11 @@ bot.on('message', (payload, reply) => {
         }
         let tt = payload.message.text;
         if (tt == 4){
-            timer.setTimeout((reply_)=>{
-                reply({
-                    "text": "time out!!!"
-                }, (err)=> {
+            timer.setTimeout(()=>{
+                bot.sendMessage(payload.sender.id, 'time out in hell chosen', (err, info)=>{
                     if (err) throw err;
                 });
-            },4000,reply);
+            },4000);
         }
 
         stateManager.do(payload, profile, (err, text)=>{
