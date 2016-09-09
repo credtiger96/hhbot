@@ -47,7 +47,9 @@ http.createServer(bot.middleware()).listen(process.env.PORT, () => {
 const http = require('http')
 const express = require('express')
 const bodyParser = require('body-parser')
-const Bot = require('../')
+const Bot = require('messenger-bot')
+const process = require('process')
+
 
 
 let bot = new Bot({
@@ -95,6 +97,6 @@ app.post('/', (req, res) => {
     res.end(JSON.stringify({status: 'ok'}))
 })
 
-http.createServer(app).listen(3000, process.env.PORT, () => {
+http.createServer(app).listen(process.env.PORT, () => {
     console.log(`server listen on ${process.env.PORT}`)
 });
