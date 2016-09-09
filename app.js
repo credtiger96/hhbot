@@ -64,7 +64,7 @@ bot.on('postback', (payload, reply) => {
         res.quick_replies= [
         {
             content_type: 'text',
-            title: '720-2',
+            title: '720',
             payload:QUICK_PAYLOAD 
         },{
             content_type: 'text',
