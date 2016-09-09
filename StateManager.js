@@ -55,6 +55,10 @@ class StateManager {
                         type: 'web_url',
                         url: _url,
                         title: '지도 보기'
+                    },{
+                        type: 'postback',
+                        title: '노선 보기',
+                        payload: 'show_bus_list'
                     }
                     ]
 
