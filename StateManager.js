@@ -40,6 +40,7 @@ class StateManager {
                 break;
             case 1 :
                 if (payload.message.attachments && payload.message.attachments[0].payload.coordinates){
+                    console.log(payload.message.attachments)
                     //let lat = payload.message.attachments[0].payload.coordinates.lat;
                     //let long = payload.message.attachments[0].payload.coordinates.long;
                     res.text = Strings.KR_VALIDATE_LOCATION + Strings.KR_NEED_BUSNUM;
