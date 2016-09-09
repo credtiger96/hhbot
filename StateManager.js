@@ -49,7 +49,10 @@ class StateManager {
                 break;
             case 2 :
                 if (payload.message.text == '720') res = 'olleh';
-                userContext.setState(0);
+                else {
+                    res = Strings.KR_INVALIDATE_BUSNUM;
+                }
+                userContext.setState(2);
                 break;
             default :
                 userContext.setState(0);
