@@ -4,8 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Bot = require('messenger-bot');
 const process = require('process');
-const StateManager = require('./StateManager')
-
+const StateManager = require('./StateManager');
+const Strings = require('./res/Strings');
 const CMSG = 'hello world';
 
 let bot = new Bot({
@@ -49,7 +49,7 @@ bot.on('postback', (payload, reply) => {
     let res = {};
     if (payload.postback.payload == 'how_to_postback')
     {
-        res.text = KR_GREETING_MSG;
+        res.text = Strings.KR_GREETING_MSG;
     }
     else if (payload.postback.payload == 'show_bus_list') {
         res.text = 'Choose Bus Number';
@@ -64,9 +64,6 @@ bot.on('postback', (payload, reply) => {
                 payload:QUICK_PAYLOAD
             }
         ]
-    }
-    else if (payload.postback.payload == 'show_bus_list') {
-
     }
 
 
