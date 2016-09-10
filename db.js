@@ -28,24 +28,28 @@ class DB {
     }
     getState(mid, cb){
         this.hhbotRef.orderByKey().equalTo(mid).once('value', (snapshot)=>{
-            return snapshot.val()[mid]['state'];
+            if (snapshot.val()[mid]) {
+                snapshot.val()[mid]['state'] = 0;
+            }
         });
         if (cb) cb(snapshot.val()[mid]['state']);
         // return value == callback parameter
+
+        return snapshot.val()[mid]['state'];
     }
 }
 
 module.exports = new DB();
 /*
-let userRef = db.ref('hhbot/users');
+ let userRef = db.ref('hhbot/users');
 
-userRef.child('midfhjfksdhkjfhdkfjdshk').set({state : 1});
-userRef.child('midfhjfksdhkjfhdkfjdshk').update({get : 1});
-userRef.child('midfhjfksdhkjfhdkfjdshk1234').set({state : 0});
-userRef.child('midfhjfksdhkjfhdkfjdshk44124').set({state : 2});
-userRef.child('124').set({state : 2});
+ userRef.child('midfhjfksdhkjfhdkfjdshk').set({state : 1});
+ userRef.child('midfhjfksdhkjfhdkfjdshk').update({get : 1});
+ userRef.child('midfhjfksdhkjfhdkfjdshk1234').set({state : 0});
+ userRef.child('midfhjfksdhkjfhdkfjdshk44124').set({state : 2});
+ userRef.child('124').set({state : 2});
 
-userRef.orderByKey().equalTo('124').once('value', function(data){
-    console.log(data.val()['124']);
-});
-    */
+ userRef.orderByKey().equalTo('124').once('value', function(data){
+ console.log(data.val()['124']);
+ });
+ */
