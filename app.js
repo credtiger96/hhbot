@@ -81,7 +81,8 @@ bot.on('postback', (payload, reply) => {
             if (err) throw err;
             console.log(`Greeting to ${profile.first_name} ${profile.last_name}`)
 
-        })reply(res, (err) => {
+        })
+        reply(res, (err) => {
             if (err) throw err;
             console.log(`Greeting to ${profile.first_name} ${profile.last_name}`)
 
