@@ -11,15 +11,41 @@ firebase.initializeApp( {
 });
 
 // As an admin, the app has access to read and write all data, regardless of Security Rules
-var db = firebase.database();
-var hhbotRef = db.ref("hhbot");
+let instance;
+let db = firebase.database();
 
-hhbotRef.child('midfhjfksdhkjfhdkfjdshk').set({state : 1});
-hhbotRef.child('midfhjfksdhkjfhdkfjdshk').update({get : 1});
-hhbotRef.child('midfhjfksdhkjfhdkfjdshk1234').set({state : 0});
-hhbotRef.child('midfhjfksdhkjfhdkfjdshk44124').set({state : 2});
-hhbotRef.child('124').set({state : 2});
+class DB {
+    constructor (){
+        if (!instance){
+            instance = this;
+        }
+        this.userRef = db.ref('hhbot/users');
+        return instance;
+    }
+    setState(mid, stateNum, cb){
+        this.hhbotRef.child(mid).set({state : stateNum});
+        if (cb) cb();
+    }
+    getState(mid, cb){
+        this.hhbotRef.orderByKey().equalTo(mid).once('value', (snapshot)=>{
+            return snapshot.val()[mid]['state'];
+        });
+        if (cb) cb(snapshot.val()[mid]['state']);
+        // return value == callback parameter
+    }
+}
 
-hhbotRef.orderByChild('state').equalTo('124').once('value', function(data){
-    console.log(data.key + data.val());
+module.exports = new DB();
+/*
+let userRef = db.ref('hhbot/users');
+
+userRef.child('midfhjfksdhkjfhdkfjdshk').set({state : 1});
+userRef.child('midfhjfksdhkjfhdkfjdshk').update({get : 1});
+userRef.child('midfhjfksdhkjfhdkfjdshk1234').set({state : 0});
+userRef.child('midfhjfksdhkjfhdkfjdshk44124').set({state : 2});
+userRef.child('124').set({state : 2});
+
+userRef.orderByKey().equalTo('124').once('value', function(data){
+    console.log(data.val()['124']);
 });
+    */
