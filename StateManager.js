@@ -35,7 +35,7 @@ class StateManager {
 
         switch (userContext.getState()){
             case 0 :
-                res.text = Strings.KR_NEED_LOCATION;
+                res.text = Strings.KR_NEED_LOCATION.replace('name', profile.first_name);
                 userContext.setState(1);
                 break;
             case 1 :
@@ -50,17 +50,23 @@ class StateManager {
                     res.attachment.type = 'template';
                     res.attachment.payload = {};
                     res.attachment.payload.template_type = 'button';
-                    res.attachment.payload.buttons = [
+                    res.attachment.payload.buttons = [/*
                     {
                         type: 'web_url',
                         url: _url,
                         title: '지도 보기'
-                    },{
+                    }*/
+                        {
+                            type : 'postback',
+                            title : '지도 보기',
+                            payload : 'showMap'
+
+                        },{
                         type: 'postback',
                         title: '노선 보기',
                         payload: 'show_bus_list'
                     }
-                    ]
+                    ];
 
                     res.attachment.payload.text = Strings.KR_VALIDATE_LOCATION + Strings.KR_NEED_BUSNUM;
                     userContext.setState(2);
