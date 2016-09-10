@@ -51,12 +51,13 @@ class StateManager {
                             type: "image",
                             payload: {
                                 url: "https://maps.googleapis.com/maps/api/staticmap?center=" +
-                                "Berkeley,CA&zoom=18&size=400x400&key=AIzaSyD39ZWgG0NdYf1ZdiA" +
-                                "KZg-9pPHRORSqBUA"
+                                "37.2789278,127.0437552" +
+                                "&zoom=18&size=400x400" +
+                                "&key=AIzaSyD39ZWgG0NdYf1ZdiAKZg-9pPHRORSqBUA" +
+                                "&markers=color:red%7Clabel:S%7C37.2789278,127.0437552"
                             }
                         }
                     });
-
                     res.attachment = {};
                     res.attachment.type = '';
                     res.attachment.type = 'template';
