@@ -28,7 +28,10 @@ class DB {
     }
     getState(mid, cb){
         this.userRef.orderByKey().equalTo(mid).once('value', (snapshot)=>{
-            if (!snapshot.val()) return 0;
+            if (!snapshot.val()) {
+                cb(0);
+                return 0;
+            }
             if (cb) cb(snapshot.val()[mid]['state']);
             // return value == callback parameter
 
