@@ -23,7 +23,7 @@ class DB {
         return instance;
     }
     setState(mid, stateNum, cb){
-        this.hhbotRef.child(mid).set({state : stateNum});
+        this.hhbotRef.child(mid).update({state : stateNum});
         if (cb) cb();
     }
     getState(mid, cb){

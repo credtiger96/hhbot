@@ -5,7 +5,7 @@
 let Context = require('./Context');
 const request = require('request');
 const Strings = require('./res/Strings');
-const DB = require('./db');
+const db = require('./db');
 let instance  = null;
 
 class StateManager {
