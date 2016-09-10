@@ -52,9 +52,9 @@ class StateManager {
                             payload: {
                                 url: "https://maps.googleapis.com/maps/api/staticmap?center=" +
                                 "37.2789278,127.0437552" +
-                                "&zoom=18&size=400x400" +
+                                "&zoom=19&size=400x400" +
                                 "&key=AIzaSyD39ZWgG0NdYf1ZdiAKZg-9pPHRORSqBUA" +
-                                "&markers=color:red%7Clabel:S%7C37.2789278,127.0437552"
+                                "&markers=color:red%7Clabel:B%7C37.2789278,127.0437552"
                             }
                         }
                     });
@@ -76,7 +76,7 @@ class StateManager {
                         }
                     ];
 
-                    res.attachment.payload.text = Strings.KR_VALIDATE_LOCATION + Strings.KR_NEED_BUSNUM;
+                    res.attachment.payload.text = Strings.KR_VALIDATE_LOCATION;
                     userContext.setState(2);
                 }else {
                     res.text = Strings.KR_INVALIDATE_LOCATION;

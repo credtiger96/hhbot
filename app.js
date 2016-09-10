@@ -6,7 +6,8 @@ const Bot = require('messenger-bot');
 const process = require('process');
 const StateManager = require('./StateManager');
 const Strings = require('./res/Strings');
-const CMSG = 'hello world';
+const db = require('./db');
+
 
 let bot = new Bot({
     token: 'EAAZAafXETcwABAFz2qNcr1OyWRQukdS0LlNO9MUjbRsOvDgWfp7QcZAg4XaZBVoHJrl2FU5ZAMGo44UmBVRqV8ZCClUwTgXn0Jf4om2JQ8mbBZATzTTIFPOoENG1DW5cYK94I8CtKYnm9yRHSj7BLwQkjnP1Y0ui8W2rdBXvBxiQZDZD',
@@ -52,7 +53,7 @@ bot.on('postback', (payload, reply) => {
         res.text = Strings.KR_GREETING_MSG;
     }
     else if (payload.postback.payload == 'show_bus_list') {
-        res.text = 'Choose Bus Number';
+        res.text = Strings.KR_NEED_BUSNUM;
         res.quick_replies= [
             {
                 content_type: 'text',
