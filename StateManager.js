@@ -51,7 +51,7 @@ class StateManager {
                             type: "image",
                             payload: {
                                 url: "https://maps.googleapis.com/maps/api/staticmap?center=" +
-                                "Berkeley,CA&zoom=14&size=400x400&key=AIzaSyD39ZWgG0NdYf1ZdiA" +
+                                "Berkeley,CA&zoom=18&size=400x400&key=AIzaSyD39ZWgG0NdYf1ZdiA" +
                                 "KZg-9pPHRORSqBUA"
                             }
                         }
@@ -65,12 +65,12 @@ class StateManager {
                     res.attachment.payload.buttons = [
                         {
                             type : 'postback',
-                            title : '웹으로 보기',
+                            title : '웹으로 보기', // 지도는 보여줄것이므로 웹으로 보기가 적절
                             payload : 'showMap'
 
                         },{
                             type: 'postback',
-                            title: '노선 보기',
+                            title: '버스 보기',// 버스 보기가 더 적절한것 같음.
                             payload: 'show_bus_list'
                         }
                     ];
