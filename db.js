@@ -23,19 +23,19 @@ class DB {
         return instance;
     }
     setState(mid, stateNum, cb){
-        this.hhbotRef.child(mid).update({state : stateNum});
+        this.userRef.child(mid).update({state : stateNum});
         if (cb) cb();
     }
     getState(mid, cb){
-        this.hhbotRef.orderByKey().equalTo(mid).once('value', (snapshot)=>{
+        this.userRef.orderByKey().equalTo(mid).once('value', (snapshot)=>{
             if (snapshot.val()[mid]) {
                 snapshot.val()[mid]['state'] = 0;
             }
-        });
         if (cb) cb(snapshot.val()[mid]['state']);
         // return value == callback parameter
 
         return snapshot.val()[mid]['state'];
+        });
     }
 }
 
