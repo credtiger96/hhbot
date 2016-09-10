@@ -28,11 +28,11 @@ class DB {
     }
     getState(mid, cb){
         this.userRef.orderByKey().equalTo(mid).once('value', (snapshot)=>{
-            if (!snapshot) return 0;
-        if (cb) cb(snapshot.val()[mid]['state']);
-        // return value == callback parameter
+            if (!snapshot.val()) return 0;
+            if (cb) cb(snapshot.val()[mid]['state']);
+            // return value == callback parameter
 
-        return snapshot.val()[mid]['state'];
+            return snapshot.val()[mid]['state'];
         });
     }
 }
