@@ -70,12 +70,12 @@ function query_analysis(query, cb) {
     
 }
 
-//module.exports = query_analysis;
+module.exports = query_analysis;
 
 // useage
 
-query_analysis('수원역가는 730번', (err, ret) => {
-    if (err) console.log(ret);
-    console.log (ret);
-});
+//query_analysis('수원역가는 730번', (err, ret) => {
+//    if (err) console.log(ret);
+//    console.log (ret);
+//});
 
