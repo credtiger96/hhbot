@@ -1,4 +1,4 @@
-const request = require('sync-request');
+const request = require('request');
 
 let headers = {
     'Origin': 'http://www.gbis.go.kr',
@@ -14,21 +14,22 @@ let headers = {
 };
 
 let dataString = 'cmd=searchBusStationJson&stationId=202000005';
-
-let url = 'http://www.gbis.go.kr/gbis2014/schBusAPI.action';
-let method = 'POST';
+;
 let options = {
+    url: 'http://www.gbis.go.kr/gbis2014/schBusAPI.action',
+    method: 'POST',
     headers: headers,
     body: dataString
 };
 
-function getStation() {
+function getBusList(cb) {
     //options.body = 'cmd=searchBusStationJson&stationId='+ID;
-    response = request(method, url, options);
-    data = JSON.parse(response.body);
-    busList = data.result.busStationInfo;
+    request(options, (err, res, body) => {
+        if (err) throw err;
+        json_data = JSON.parse(body).result.busStationInfo;
 
-    return busList;
+        cb(json_data);
+    });
 }
 
-module.exports = getStation;
+module.exports = getBusList;
