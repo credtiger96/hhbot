@@ -38,7 +38,7 @@ function query_analysis(query, cb) {
             return cb(-1, err);
         }
 
-        getRoute((ret) => {
+        getRoute(Bus, (ret) => {
             let stationList = ret;
             let direction = null;
 

@@ -28,7 +28,8 @@ const fixed_station = '아주대.아주대병원';
 
 //request(options, callback);
 
-function getBusList(cb) {
+function getBusList(Bus, cb) {
+    options.body = 'cmd=searchRouteJson&routeId=' + Bus;
     request(options, (err, res, body) => {
         if (err) throw err;
         json_data = JSON.parse(body).result.gg;
