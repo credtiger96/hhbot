@@ -26,7 +26,7 @@ function getBusList(cb) {
     //options.body = 'cmd=searchBusStationJson&stationId='+ID;
     request(options, (err, res, body) => {
         if (err) throw err;
-        json_data = JSON.parse(body).result.busStationInfo;
+        json_data = JSON.parse(body).result;
 
         cb(json_data);
     });
