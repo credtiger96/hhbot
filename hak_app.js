@@ -60,7 +60,7 @@ bot.on('message', (payload, reply) => {
                                 "type": "template",
                                 "payload": {
                                     "template_type": "button",
-                                    "text": "What do you want to do next?",
+                                    "text": text,
                                     "buttons": [
                                         {
                                             "type": "postback",
