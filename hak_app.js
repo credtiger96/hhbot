@@ -91,14 +91,14 @@ bot.on('postback', (payload, reply) => {
 
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) throw err;
-
-        if (payload.postback.payload.startsWith("ALARM")) {
-            payload.postback.payload.replace("ALARM", "");
+        let gotPayload = payload.postback.payload;
+        if (gotPayload.startsWith("ALARM")) {
+            let t = gotPayload.replace("ALARM", "");
             setTimeout(()=>{
                 reply({'text': '버스타러 갑시다.'}, (err)=>{if(err) throw  err;});
-            }, (payload.postback.payload - 10) * 60 *1000 )
+            }, (t - 10) * 60 *1000 )
 
-            reply({'text': `네 알겠습니다. ${(payload.postback.payload - 10) * 60 *1000} 분 후에 메세지드리겠습니다.`}, (err)=>{if(err) throw  err;});
+            reply({'text': `네 알겠습니다. ${t} 분 후에 메세지드리겠습니다.`}, (err)=>{if(err) throw  err;});
         }
 
     })
