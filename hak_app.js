@@ -34,7 +34,7 @@ bot.on('message', (payload, reply) => {
         }
 
         query_analysis(payload.message.text, (err, ret) => {
-           if (err == -1) {
+           if (err) {
                reply({'text': ret}, (err) => {
                    if (err) throw err;
                });
