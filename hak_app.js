@@ -94,7 +94,7 @@ bot.on('postback', (payload, reply) => {
         payload.postback.payload.replace("ALARM", "");
         setTimeout(()=>{
             reply({'text': '버스타러 갑시다.'}, (err)=>{if(err) throw  err;});
-        }, payload.postback.payload * 60 *1000 )
+        }, (payload.postback.payload - 10) * 60 *1000 )
     }
 
     bot.getProfile(payload.sender.id, (err, profile) => {
