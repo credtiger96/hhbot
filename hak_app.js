@@ -88,23 +88,18 @@ bot.on('postback', (payload, reply) => {
 
     console.log('payload come');
     console.log(payload);
-    const QUICK_PAYLOAD = 'PPPP';
-    let res = {};
-    if (payload.postback.payload.startsWith("ALARM")) {
-        payload.postback.payload.replace("ALARM", "");
-        setTimeout(()=>{
-            reply({'text': '버스타러 갑시다.'}, (err)=>{if(err) throw  err;});
-        }, (payload.postback.payload - 10) * 60 *1000 )
-    }
 
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) throw err;
 
-        reply(res, (err) => {
-            if (err) throw err;
-            console.log(`Greeting to ${profile.first_name} ${profile.last_name}`)
+        if (payload.postback.payload.startsWith("ALARM")) {
+            payload.postback.payload.replace("ALARM", "");
+            setTimeout(()=>{
+                reply({'text': '버스타러 갑시다.'}, (err)=>{if(err) throw  err;});
+            }, (payload.postback.payload - 10) * 60 *1000 )
+        }
 
-        })
+        reply({'text': '네 알겠습니다.'}, (err)=>{if(err) throw  err;});
     })
 
 });
