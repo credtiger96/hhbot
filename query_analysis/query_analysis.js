@@ -23,8 +23,8 @@ function query_analysis(query, cb) {
     }
 
     getBusList((ret) => {
-        let busList = ret.busStationInfo;
-        let busArrival = ret.busArrivalInfo;
+        let busList = ret[0].busStationInfo;
+        let busArrival = [ret[0].busArrivalInfo, ret[1].busArrivalInfo];
         let Bus = null;
         
 
