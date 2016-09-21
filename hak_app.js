@@ -52,9 +52,9 @@ bot.on('message', (payload, reply) => {
 
                 let res = {'text': text};
 
-                for (var time in ret.meta.time_to_wait) {
-                    console.log('this is log time :' + time);
-                    if (time > 10) {
+                for (var i in ret.meta.time_to_wait) {
+                    console.log('this is log time :' + ret.meta.time_to_wait[i]);
+                    if (ret.meta.time_to_wait[i] > 10) {
                         res = {
                             "attachment": {
                                 "type": "template",
@@ -65,7 +65,7 @@ bot.on('message', (payload, reply) => {
                                         {
                                             "type": "postback",
                                             "title": "10분 전에 알림 받기",
-                                            "payload": "ALARM" + time
+                                            "payload": "ALARM" + ret.meta.time_to_wait[i]
                                         }
                                     ]
                                 }
