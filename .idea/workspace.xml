@@ -45,8 +45,8 @@
           <file leaf-file-name="hak_app.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/hak_app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="522">
-                  <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+                <state relative-caret-position="504">
+                  <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -315,12 +315,12 @@
       <workItem from="1473408435842" duration="2430000" />
       <workItem from="1473420779655" duration="260000" />
       <workItem from="1473421476027" duration="20106000" />
-      <workItem from="1474452317323" duration="1804000" />
+      <workItem from="1474452317323" duration="1925000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24600000" />
+    <option name="totallyTimeSpent" value="24721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
@@ -524,8 +524,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hak_app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        <state relative-caret-position="504">
+          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
           <folding />
         </state>
       </provider>
