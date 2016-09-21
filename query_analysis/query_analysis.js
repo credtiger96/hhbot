@@ -60,11 +60,14 @@ function query_analysis(query, cb) {
 
             if (stationFrom && stationTo){
                 for (let i = 0; i < busArrival.length; i++ ) {
-                    if (busArrival[i].routeId == Bus){
-                        //console.log(Bus);
-                        time_to_wait = [busArrival[i].predictTime1, busArrival[i].predictTime2];
-                        break;
+                    for (let j = 0; j < busArrival[i].length; j++){
+                        if (busArrival[i][j].routeId == Bus){
+                            //console.log(Bus);
+                            time_to_wait = [busArrival[i][j].predictTime1, busArrival[i][j].predictTime2];
+                            break;
+                        }
                     }
+                    
                 }
             }
             else {

@@ -23,12 +23,19 @@ let options = {
 };
 
 function getBusList(cb) {
-    //options.body = 'cmd=searchBusStationJson&stationId='+ID;
     request(options, (err, res, body) => {
         if (err) throw err;
-        json_data = JSON.parse(body).result;
+        let json_data = []
+        json_data.push(JSON.parse(body).result);
 
-        cb(json_data);
+
+        options.body = 'cmd=searchBusStationJson&stationId='+'203000066';
+        request(options, (err, res, body)=>{
+            json_data.push(JSON.parse(body).result); 
+            cb(json_data);
+        });
+
+        
     });
 }
 
