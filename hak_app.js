@@ -33,7 +33,7 @@ bot.on('message', (payload, reply) => {
             throw err;
         }
 
-        query_analysis(payload.message, (err, ret) => {
+        query_analysis(payload.message.text, (err, ret) => {
            if (err == -1) {
                reply({'text': '무슨소린지 모르겠어요 ㅜㅜ 정확한 문장을 넘겨주세요! ex) 정자역 가는 730번, 수원역가는 720-2'}, (err) => {
                    if (err) throw err;
