@@ -64,7 +64,7 @@ bot.on('message', (payload, reply) => {
                                     "buttons": [
                                         {
                                             "type": "postback",
-                                            "title": "10분 전에 알림 받기",
+                                            "title": "도착 10분 전에 알림 받기",
                                             "payload": "ALARM" + ret.meta.time_to_wait[i]
                                         }
                                     ]
@@ -98,7 +98,7 @@ bot.on('postback', (payload, reply) => {
                 reply({'text': '버스타러 갑시다.'}, (err)=>{if(err) throw  err;});
             }, (t - 10) * 60 *1000 )
 
-            reply({'text': `네 알겠습니다. ${t} 분 후에 메세지드리겠습니다.`}, (err)=>{if(err) throw  err;});
+            reply({'text': `네 알겠습니다. 버스 도착 ${t - 10} 분 전에 메세지드리겠습니다.`}, (err)=>{if(err) throw  err;});
         }
 
     })
