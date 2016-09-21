@@ -97,9 +97,10 @@ bot.on('postback', (payload, reply) => {
             setTimeout(()=>{
                 reply({'text': '버스타러 갑시다.'}, (err)=>{if(err) throw  err;});
             }, (payload.postback.payload - 10) * 60 *1000 )
+
+            reply({'text': `네 알겠습니다. ${(payload.postback.payload - 10) * 60 *1000} 분 후에 메세지드리겠습니다.`}, (err)=>{if(err) throw  err;});
         }
 
-        reply({'text': '네 알겠습니다.'}, (err)=>{if(err) throw  err;});
     })
 
 });
