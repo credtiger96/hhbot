@@ -43,14 +43,14 @@ bot.on('message', (payload, reply) => {
                 let text = `버스 번호 : ${ret.bus.decode} \n` +
                     `목적지 : ${ret.meta.destination.stationNm}` +
                     `\n출발지 : ${ret.meta.stationFrom.stationNm}`;
-                let isOver10 = false;
-                let res = {'text': res};
                 if (ret.meta.time_to_wait.length == 2) {
                     text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분 ${ret.meta.time_to_wait[1]}분`;
                 }
                 else {
                     text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분`;
                 }
+
+                let res = {'text': text};
 
                 for (var time in ret.meta.time_to_wait) {
                     if (time > 10) {
