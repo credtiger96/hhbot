@@ -14,7 +14,7 @@ function query_analysis(query, cb) {
     let err = null;
 
     if(!busNum) {
-        err = 'Input right Bus Number in Query';
+        err = '버스 번호를 꼭 보내주셔야 합니다!';
         cb(-1, err);
         return;
     }
@@ -36,7 +36,7 @@ function query_analysis(query, cb) {
         }
 
         if (!Bus){
-            err = 'Input right Bus Number in Query';
+            err = '버스 번호를 정확히 입력해주세요!';
             return cb(-1, err);
         }
 
@@ -67,6 +67,11 @@ function query_analysis(query, cb) {
                     }
                 }
             }
+            else {
+                err = '어디로 간다구요? 올바른 위치를 보내주세요!';
+                return cb(-2, err);
+            }
+
 
 
             ret_v = {

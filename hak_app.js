@@ -35,28 +35,27 @@ bot.on('message', (payload, reply) => {
 
         query_analysis(payload.message.text, (err, ret) => {
            if (err == -1) {
-               reply({'text': '무슨소린지 모르겠어요 ㅜㅜ 정확한 문장을 넘겨주세요! ex) 정자역 가는 730번, 수원역가는 720-2'}, (err) => {
+               reply({'text': ret}, (err) => {
                    if (err) throw err;
                });
            }
+           else {
+               let res = `버스 번호 : ${ret.bus.decode} \n` +
+                   `목적지 : ${ret.meta.destination.stationNm}` +
+                   `\n출발지 : ${ret.meta.stationFrom.stationNm}`;
+               if (ret.meta.time_to_wait.length == 2) {
+                   res += `\n남은시간 : ${ret.meta.time_to_wait[0]}분 ${ret.meta.time_to_wait[1]}분`;
+               }
+               else {
+                   res += `\n남은시간 : ${ret.meta.time_to_wait[0]}분`;
+               }
 
-           let res = `버스 번호 : ${ret.bus.decode} \n`+
-               `목적지 : ${ret.meta.destination.stationNm}` +
-               `\n출발지 : ${ret.meta.stationFrom.stationNm}`;
-            if (ret.meta.time_to_wait.length == 2){
-                res += `\n남은시간 : ${ret.meta.time_to_wait[0]}분 ${ret.meta.time_to_wait[1]}분`;
-            }
-            else{
-                res += `\n남은시간 : ${ret.meta.time_to_wait[0]}분`;
-            }
-
-            console.log(res);
-           reply({'text' : res}, (err) => {
-               if (err) throw err;
-           });
+               console.log(res);
+               reply({'text': res}, (err) => {
+                   if (err) throw err;
+               });
+           }
         });
-
-
     })
 });
 
