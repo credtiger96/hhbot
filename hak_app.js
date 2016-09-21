@@ -53,7 +53,7 @@ bot.on('message', (payload, reply) => {
                 let res = {'text': text};
 
                 for (var time in ret.meta.time_to_wait) {
-                    console.log(time);
+                    console.log('this is log time :' + time);
                     if (time > 10) {
                         res = {
                             "attachment": {
