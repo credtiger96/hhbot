@@ -71,13 +71,14 @@ bot.on('message', (payload, reply) => {
                                 }
                             }
                         };
+                        break;
                     }
 
-                    reply(res, (err) => {
-                        if (err) throw err;
-                    });
-                    break;
                 }
+
+                reply(res, (err) => {
+                    if (err) throw err;
+                });
             }
         });
     })
