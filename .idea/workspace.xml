@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/app.js" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="876d81ef-4ec0-4b06-86c7-b0dbc5b5f9eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hak_app.js" afterPath="$PROJECT_DIR$/hak_app.js" />
-    </list>
+    <list default="true" id="876d81ef-4ec0-4b06-86c7-b0dbc5b5f9eb" name="Default" comment="" />
     <ignored path="Chatbot.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -43,8 +41,8 @@
       <file leaf-file-name="hak_app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hak_app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="97" column="45" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
+            <state relative-caret-position="1638">
+              <caret line="91" column="57" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -232,15 +230,15 @@
       <workItem from="1473408435842" duration="2430000" />
       <workItem from="1473420779655" duration="260000" />
       <workItem from="1473421476027" duration="20106000" />
-      <workItem from="1474452317323" duration="6914000" />
+      <workItem from="1474452317323" duration="6937000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29710000" />
+    <option name="totallyTimeSpent" value="29733000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
+    <frame x="0" y="24" width="1920" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13645834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -441,8 +439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hak_app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="97" column="45" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
+        <state relative-caret-position="1638">
+          <caret line="91" column="57" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="57" />
           <folding />
         </state>
       </provider>
