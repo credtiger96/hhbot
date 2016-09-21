@@ -50,7 +50,7 @@ function query_analysis(query, cb) {
             for (let i = 0; i < 2; i++){
                 for (let j = 0; j < stationList[i].length; j++){
                     if ((u = stationList[i][j].stationNm.indexOf(dest)) != -1){
-                        console.log(stationList[i][j].stationNm.substring(u,stationList[i][j].stationNm.length));
+                        //console.log(stationList[i][j].stationNm.substring(u,stationList[i][j].stationNm.length));
                         stationFrom = stationList[i][0];
                         stationTo = stationList[i][j];
                         break;
@@ -61,7 +61,7 @@ function query_analysis(query, cb) {
             if (stationFrom && stationTo){
                 for (let i = 0; i < busArrival.length; i++ ) {
                     if (busArrival[i].routeId == Bus){
-                        console.log(Bus);
+                        //console.log(Bus);
                         time_to_wait = [busArrival[i].predictTime1, busArrival[i].predictTime2];
                         break;
                     }
@@ -90,13 +90,13 @@ function query_analysis(query, cb) {
     
 }
 
-module.exports = query_analysis;
+//module.exports = query_analysis;
 
 // useage
 
-/*
+
 query_analysis('수원역가는 730번', (err, ret) => {
     if (err) console.log(ret);
     console.log (ret);
 });
-*/
+
