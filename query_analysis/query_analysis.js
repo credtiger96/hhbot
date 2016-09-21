@@ -68,7 +68,7 @@ function query_analysis(query, cb) {
                 }
             }
             else {
-                err = '어디로 간다구요? 올바른 위치를 보내주세요!';
+                err = '죄송합니다. 해당 노선은 말씀하신 곳으로 가지 않는것 같네요\n정류장 + 버스번호 순서대로 입력해주세요';
                 return cb(-2, err);
             }
 

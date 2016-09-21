@@ -34,27 +34,50 @@ bot.on('message', (payload, reply) => {
         }
 
         query_analysis(payload.message.text, (err, ret) => {
-           if (err) {
-               reply({'text': ret}, (err) => {
-                   if (err) throw err;
-               });
-           }
-           else {
-               let res = `버스 번호 : ${ret.bus.decode} \n` +
-                   `목적지 : ${ret.meta.destination.stationNm}` +
-                   `\n출발지 : ${ret.meta.stationFrom.stationNm}`;
-               if (ret.meta.time_to_wait.length == 2) {
-                   res += `\n남은시간 : ${ret.meta.time_to_wait[0]}분 ${ret.meta.time_to_wait[1]}분`;
-               }
-               else {
-                   res += `\n남은시간 : ${ret.meta.time_to_wait[0]}분`;
-               }
+            if (err) {
+                reply({'text': ret}, (err) => {
+                    if (err) throw err;
+                });
+            }
+            else {
+                let text = `버스 번호 : ${ret.bus.decode} \n` +
+                    `목적지 : ${ret.meta.destination.stationNm}` +
+                    `\n출발지 : ${ret.meta.stationFrom.stationNm}`;
+                let isOver10 = false;
+                let res = {'text': res};
+                if (ret.meta.time_to_wait.length == 2) {
+                    text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분 ${ret.meta.time_to_wait[1]}분`;
+                }
+                else {
+                    text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분`;
+                }
 
-               console.log(res);
-               reply({'text': res}, (err) => {
-                   if (err) throw err;
-               });
-           }
+                for (var time in ret.meta.time_to_wait) {
+                    if (time > 10) {
+                        res = {
+                            "attachment": {
+                                "type": "template",
+                                "payload": {
+                                    "template_type": "button",
+                                    "text": "What do you want to do next?",
+                                    "buttons": [
+                                        {
+                                            "type": "postback",
+                                            "title": "10분 전에 알림 받기",
+                                            "payload": "ALARM" + time
+                                        }
+                                    ]
+                                }
+                            }
+                        };
+                    }
+
+                    reply(res, (err) => {
+                        if (err) throw err;
+                    });
+                    break;
+                }
+            }
         });
     })
 });
@@ -65,23 +88,11 @@ bot.on('postback', (payload, reply) => {
     console.log(payload);
     const QUICK_PAYLOAD = 'PPPP';
     let res = {};
-    if (payload.postback.payload == 'how_to_postback')
-    {
-        res.text = KR_GREETING_MSG;
-    }
-    else if (payload.postback.payload == 'show_bus_list') {
-        res.text = 'Choose Bus Number';
-        res.quick_replies= [
-            {
-                content_type: 'text',
-                title: '720',
-                payload:QUICK_PAYLOAD
-            },{
-                content_type: 'text',
-                title: '720-1',
-                payload:QUICK_PAYLOAD
-            }
-        ]
+    if (payload.postback.payload.startsWith("ALARM")) {
+        payload.postback.payload.replace("ALARM", "");
+        setTimeout(()=>{
+            reply({'text': '버스타러 갑시다.'}, (err)=>{if(err) throw  err;});
+        }, payload.postback.payload * 60 *1000 )
     }
 
     bot.getProfile(payload.sender.id, (err, profile) => {
