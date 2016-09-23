@@ -58,8 +58,11 @@ function query_analysis(query, cb) {
                         break;
                     }
                 }
-                if (direction) break;
+                if (direction !== null) break;
             }
+
+           console.log('direction is',direction); 
+            
 
             if (stationFrom && stationTo){
                 for (let j = 0; j < busArrival[direction].length; j++){
