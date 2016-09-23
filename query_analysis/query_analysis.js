@@ -106,9 +106,10 @@ module.exports = query_analysis;
 
 // useage
 
-
+/*
 query_analysis(process.argv[2], (err, ret) => {
     if (err) console.log(ret);
     console.log (ret);
 });
+*/
 
