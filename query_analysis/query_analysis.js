@@ -93,6 +93,7 @@ function query_analysis(query, cb) {
                 }
             }
 
+            console.log(ret_v);
             return cb(0, ret_v);
 
 
