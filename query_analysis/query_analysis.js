@@ -106,9 +106,9 @@ module.exports = query_analysis;
 
 // useage
 
-/*
-query_analysis('수원역가는 730번', (err, ret) => {
+
+query_analysis(process.argv[2], (err, ret) => {
     if (err) console.log(ret);
     console.log (ret);
 });
-*/
+

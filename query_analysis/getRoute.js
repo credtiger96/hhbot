@@ -45,7 +45,7 @@ function getBusList(Bus, cb) {
                 }
             }
         }
-        console.log(ret[0][0], ret[0][1], ret[1][0], ret[1][1]);
+        //console.log(ret[0][0], ret[0][1], ret[1][0], ret[1][1]);
         cb(ret);
     });
 }

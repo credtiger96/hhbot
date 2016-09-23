@@ -43,6 +43,7 @@ bot.on('message', (payload, reply) => {
                 let text = `버스 번호 : ${ret.bus.decode} \n` +
                     `목적지 : ${ret.meta.destination.stationNm}` +
                     `\n출발지 : ${ret.meta.stationFrom.stationNm}`;
+                console.log(ret.meta.time_to_wait);
                 if (ret.meta.time_to_wait.length == 2) {
                     text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분 ${ret.meta.time_to_wait[1]}분`;
                 }
