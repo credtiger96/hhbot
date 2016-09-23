@@ -46,6 +46,7 @@ function query_analysis(query, cb) {
             let stationFrom = null; 
             let stationTo = null;
             let time_to_wait = null;
+            let direction = null;
 
             for (let i = 0; i < 2; i++){
                 for (let j = 0; j < stationList[i].length; j++){
@@ -53,19 +54,18 @@ function query_analysis(query, cb) {
                         //console.log(stationList[i][j].stationNm.substring(u,stationList[i][j].stationNm.length));
                         stationFrom = stationList[i][0];
                         stationTo = stationList[i][j];
+                        direction = i;
                         break;
                     }
                 }
             }
 
             if (stationFrom && stationTo){
-                for (let i = 0; i < busArrival.length; i++ ) {
-                    for (let j = 0; j < busArrival[i].length; j++){
-                        if (busArrival[i][j].routeId == Bus){
-                            //console.log(Bus);
-                            time_to_wait = [busArrival[i][j].predictTime1, busArrival[i][j].predictTime2];
-                            break;
-                        }
+                for (let j = 0; j < busArrival[direction].length; j++){
+                    if (busArrival[direction][j].routeId == Bus){
+                        //console.log(Bus);
+                        time_to_wait = [busArrival[direction][j].predictTime1, busArrival[direction][j].predictTime2];
+                        break;
                     }
                     
                 }
