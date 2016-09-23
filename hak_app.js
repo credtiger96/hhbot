@@ -44,7 +44,11 @@ bot.on('message', (payload, reply) => {
                     `목적지 : ${ret.meta.destination.stationNm}` +
                     `\n출발지 : ${ret.meta.stationFrom.stationNm}`;
                 console.log(ret.meta.time_to_wait);
-                if (ret.meta.time_to_wait.length == 2) {
+                if(!ret.meta.time_to_wait){
+                    text = '현재 버스가 없습니다. 다른 노선을 찾아보시기 바랍니다.'
+
+                }
+                else if (ret.meta.time_to_wait.length == 2) {
                     text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분 ${ret.meta.time_to_wait[1]}분`;
                 }
                 else {
