@@ -58,6 +58,7 @@ function query_analysis(query, cb) {
                         break;
                     }
                 }
+                if (direction) break;
             }
 
             if (stationFrom && stationTo){
