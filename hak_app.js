@@ -30,7 +30,7 @@ bot.on('message', (payload, reply) => {
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) {
             console.log('getProfile error : ' +  err.message);
-            throw err;
+            //throw err;
         }
 
         query_analysis(payload.message.text, (err, ret) => {
