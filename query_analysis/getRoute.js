@@ -32,13 +32,13 @@ function getBusList(Bus, cb) {
     options.body = 'cmd=searchRouteJson&routeId=' + Bus;
     request(options, (err, res, body) => {
         if (err) throw err;
-        json_data = JSON.parse(body).result.gg;
-        up_list = json_data.up.list;
-        down_list = json_data.down.list;
+        let json_data = JSON.parse(body).result.gg;
+        let up_list = json_data.up.list;
+        let down_list = json_data.down.list;
 
         let ret = [up_list, down_list];
-        for (i = 0; i < ret.length; i++ ){
-            for (j = 0; j <ret[i].length; j++ ){
+        for (let i = 0; i < ret.length; i++ ){
+            for (let j = 0; j <ret[i].length; j++ ){
                 if (ret[i][j].stationNm.indexOf(fixed_station) != -1) {
                     ret[i] = ret[i].slice(j, ret[i].length);
                     break;

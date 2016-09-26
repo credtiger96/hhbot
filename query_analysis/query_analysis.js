@@ -10,7 +10,7 @@ const BUS_REGEX_PAT = /\d{1,4}-?\d{0,3}/;
 function query_analysis(query, cb) {
     let dest = query.slice(0,3);
     let busNum = query.match(BUS_REGEX_PAT);
-    let ret = null;
+    //let ret = null;
     let err = null;
 
     if(!busNum) {
@@ -82,7 +82,7 @@ function query_analysis(query, cb) {
 
 
 
-            ret_v = {
+            let ret_v = {
                 'bus': {
                     'decode': busNum,
                     'encode': Bus
