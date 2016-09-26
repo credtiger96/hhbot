@@ -9,8 +9,8 @@ var headers = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
     'Referer': 'http://www.gbis.go.kr/gbis2014/schBus.action?mapTabCd=3',
     'X-Requested-With': 'XMLHttpRequest',
-    'Connection': 'keep-alive',
-    'Cookie': 'myword=720-2; PHAROSVISITOR=0000601c01572eed1a531534c0a867c9; JSESSIONID=aJLhLc1R41zT2WbaUxYGI8DaXZd3IhtbMs1bifrFoMHkPflOQmdWqV2J8mDIuRWP.Gbus-WAS_servlet_engine2; _gat=1; ACEFCID=UID-57DADD4E626D6B51E9A7E7AE; weatherChange=2; _ga=GA1.3.1209589822.1473961289'
+    'Connection': 'keep-alive'
+    // 'Cookie': 'myword=720-2; PHAROSVISITOR=0000601c01572eed1a531534c0a867c9; JSESSIONID=aJLhLc1R41zT2WbaUxYGI8DaXZd3IhtbMs1bifrFoMHkPflOQmdWqV2J8mDIuRWP.Gbus-WAS_servlet_engine2; _gat=1; ACEFCID=UID-57DADD4E626D6B51E9A7E7AE; weatherChange=2; _ga=GA1.3.1209589822.1473961289'
 
 };
 
