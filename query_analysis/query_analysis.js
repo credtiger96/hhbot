@@ -69,6 +69,7 @@ function query_analysis(query, cb) {
                     if (busArrival[direction][j].routeId == Bus){
                         //console.log(Bus);
                         time_to_wait = [busArrival[direction][j].predictTime1, busArrival[direction][j].predictTime2];
+                        console.log(time_to_wait);
                         break;
                     }
                     
@@ -93,7 +94,7 @@ function query_analysis(query, cb) {
                 }
             }
 
-            console.log(ret_v);
+            //console.log(ret_v);
             return cb(0, ret_v);
 
 
