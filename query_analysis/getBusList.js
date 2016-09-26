@@ -31,8 +31,11 @@ function getBusList(cb) {
 
         options.body = 'cmd=searchBusStationJson&stationId='+'203000066';
         request(options, (err, res, body)=>{
-            json_data.push(JSON.parse(body).result); 
-            cb(json_data);
+            json_data.push(JSON.parse(body).result);
+            if (json_data[0] == json_data[1]){
+                console.log("NOooooooooooooooooo!!!!!!!!!!!!!!!!! Fuck");
+            }
+            return cb(json_data);
         });
 
         

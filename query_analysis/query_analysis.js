@@ -15,8 +15,8 @@ function query_analysis(query, cb) {
 
     if(!busNum) {
         err = '버스 번호를 꼭 보내주셔야 합니다!';
-        cb(-1, err);
-        return;
+
+        return cb(-1, err);
     }
     else {
         busNum = busNum[0];
