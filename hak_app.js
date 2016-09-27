@@ -49,7 +49,7 @@ bot.on('message', (payload, reply) => {
 
                 }
                 else if (ret.meta.time_to_wait.length == 2) {
-                    text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분 ${ret.meta.time_to_wait[1]}분`;
+                    text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분, ${ret.meta.time_to_wait[1]}분`;
                 }
                 else {
                     text += `\n남은시간 : ${ret.meta.time_to_wait[0]}분`;
@@ -106,8 +106,8 @@ bot.on('postback', (payload, reply) => {
             reply({'text': `네 알겠습니다. 버스 도착 10분 전에 메세지를 전송하겠습니다.`}, (err)=>{if(err) throw  err;});
         }
         else if (gotPayload == "GETTING_STARTED") {
-            let getting_started_txt = "안녕하세요 아주버스봇입니다.\n사용방법은 /도착할 정류장/ /버스번호/ 입니다.\n정류장은 최소 3글자를 입력하셔야합니다.\n사용방법의 형식을 지켜주세요!"
-            reply({ 'text': getting_started_txt });
+            let getting_started_txt = "사용방법은 /도착할 정류장/ /버스번호/ 입니다.\n정류장은 최소 3글자를 입력하셔야합니다.\n사용방법의 형식을 지켜주세요!"
+            reply({ 'text': getting_started_txt }, (err) => {if(err) throw err;});
         }
 
     })
