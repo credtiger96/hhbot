@@ -7,7 +7,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "thread_state":"new_thread",
     "call_to_actions":[
     {
-              "payload":"안녕하세요! HHbot 이에요."
+              "payload":"GETTING_STARTED"
                   }
 
     ]

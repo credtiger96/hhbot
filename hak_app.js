@@ -104,6 +104,12 @@ bot.on('postback', (payload, reply) => {
 
             reply({'text': `네 알겠습니다. 버스 도착 10분 전에 메세지를 전송하겠습니다.`}, (err)=>{if(err) throw  err;});
         }
+        else if (gotPayload == "GETTING_STARTED") {
+            let how_to = "안녕하세요 아주대버스 안내서비스봇 입니다.\n사용방법은 /정류장/가는 /버스번호/ 정류장은 최소 3글자입력을 하여야합니다.\n사용방법의 형식을 지켜주세요!"
+            reply({
+                'text': how_to
+            })
+        }
 
     })
 
