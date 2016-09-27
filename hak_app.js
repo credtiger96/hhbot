@@ -131,7 +131,7 @@ app.post('/', (req, res) => {
     res.end(JSON.stringify({status: 'ok'}))
 })
 
-http.createServer(app).listen(23417, () => {
+http.createServer(app).listen(process.env.PORT, () => {
     console.log(`server listen on ${process.env.PORT}`)
 });
 
