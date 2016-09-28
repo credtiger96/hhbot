@@ -8,7 +8,17 @@ const getBusList = require('./getBusList');
 const BUS_REGEX_PAT = /\d{1,4}-?\d{0,3}/;
 
 function query_analysis(query, cb) {
-    let dest = query.slice(0,3);
+    let dest = null;
+    try {
+        dest = query.slice(0,3);
+
+    }
+    catch (err) {
+        console.log(err.message);
+        return cb(-4, "올바른 문장을 보내주세요!");
+    }
+
+
     let busNum = query.match(BUS_REGEX_PAT);
     //let ret = null;
     let err = null;
